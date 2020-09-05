@@ -1,5 +1,5 @@
-Attribute VB_Name = "Ä£¿é1"
-Sub qy_merge() 'ºÏ²¢µ¥Ôª¸ñ£¬²¢°ÑËùÓĞµ¥Ôª¸ñµÄÖµÓÃ¿Õ¸ñ·Ö¸ôºóÒÔÎÄ±¾·½Ê½Áª½á£¬×÷ÎªºÏ²¢ºóµ¥Ôª¸ñµÄÖµ²¢¾ÓÖĞÏÔÊ¾
+Attribute VB_Name = "Home"
+Sub qy_merge() 'åˆå¹¶å•å…ƒæ ¼ï¼Œå¹¶æŠŠæ‰€æœ‰å•å…ƒæ ¼çš„å€¼ç”¨ç©ºæ ¼åˆ†éš”åä»¥æ–‡æœ¬æ–¹å¼è”ç»“ï¼Œä½œä¸ºåˆå¹¶åå•å…ƒæ ¼çš„å€¼å¹¶å±…ä¸­æ˜¾ç¤º
     Dim rng As Range
     Dim str() As String
     Dim sum As Integer
@@ -32,7 +32,7 @@ Sub qy_merge() 'ºÏ²¢µ¥Ôª¸ñ£¬²¢°ÑËùÓĞµ¥Ôª¸ñµÄÖµÓÃ¿Õ¸ñ·Ö¸ôºóÒÔÎÄ±¾·½Ê½Áª½á£¬×÷ÎªºÏ
     
 End Sub
 
-Sub qy_merge_new() 'ºÏ²¢µ¥Ôª¸ñ£¬²¢°ÑËùÓĞµ¥Ôª¸ñµÄÖµÓÃÊäÈë¿òÊäÈë·Ö¸ôºóÒÔÎÄ±¾·½Ê½Áª½á£¬×÷ÎªºÏ²¢ºóµ¥Ôª¸ñµÄÖµ²¢¾ÓÖĞÏÔÊ¾
+Sub qy_merge_new() 'åˆå¹¶å•å…ƒæ ¼ï¼Œå¹¶æŠŠæ‰€æœ‰å•å…ƒæ ¼çš„å€¼ç”¨è¾“å…¥æ¡†è¾“å…¥åˆ†éš”åä»¥æ–‡æœ¬æ–¹å¼è”ç»“ï¼Œä½œä¸ºåˆå¹¶åå•å…ƒæ ¼çš„å€¼å¹¶å±…ä¸­æ˜¾ç¤º
     
     Dim rng As Range
     Dim str() As String
@@ -43,7 +43,7 @@ Sub qy_merge_new() 'ºÏ²¢µ¥Ôª¸ñ£¬²¢°ÑËùÓĞµ¥Ôª¸ñµÄÖµÓÃÊäÈë¿òÊäÈë·Ö¸ôºóÒÔÎÄ±¾·½Ê½Áª
     On Error Resume Next
     Set rng = Selection
     sum = 0
-    a = InputBox("ÇëÊäÈëÒ»¸ö·Ö¸ô·û£¬ÓÃÓÚ·Ö¸ô¸÷µ¥Ôª¸ñ£¬°´È¡ÏûÎª²»·Ö¸ô")
+    a = InputBox("è¯·è¾“å…¥ä¸€ä¸ªåˆ†éš”ç¬¦ï¼Œç”¨äºåˆ†éš”å„å•å…ƒæ ¼ï¼ŒæŒ‰å–æ¶ˆä¸ºä¸åˆ†éš”")
     
     For Each r In rng
         sum = sum + 1
@@ -67,31 +67,31 @@ Sub qy_merge_new() 'ºÏ²¢µ¥Ôª¸ñ£¬²¢°ÑËùÓĞµ¥Ôª¸ñµÄÖµÓÃÊäÈë¿òÊäÈë·Ö¸ôºóÒÔÎÄ±¾·½Ê½Áª
     End With
 End Sub
 
-Public Sub copyIM() '¶à±íÊı¾İºÏ²¢µ½ĞÂ±í
+Public Sub copyIM() 'å¤šè¡¨æ•°æ®åˆå¹¶åˆ°æ–°è¡¨
     Dim sht As Worksheet, xrow As Integer, rng As Range
     Dim lastCount As String
     Dim rngS As Range
     
-    Worksheets.Add(before:=Worksheets(1)).Name = "ĞÂ½¨»ã×Ü±í"
+    Worksheets.Add(before:=Worksheets(1)).Name = "æ–°å»ºæ±‡æ€»è¡¨"
     
-    '¸´ÖÆ¸÷±íÊı¾İµ½ĞÂ±í
+    'å¤åˆ¶å„è¡¨æ•°æ®åˆ°æ–°è¡¨
     For Each sht In Worksheets
-        If sht.Name <> ActiveSheet.Name Then     'Èç¹û¹¤×÷±í²»ÊÇµ±Ç°¼¤»îµÄ±í
-            Set rng = Range("A65536").End(xlUp).Offset(1, 0)  'È¡µÃµ±Ç°±íAÁĞµÚÒ»¸ö·Ç¿Õµ¥Ôª¸ñ
-            xrow = sht.Range("A1").CurrentRegion.Rows.Count - 1  'È¡µÃÒª¸´ÖÆµÄ¹¤×÷±íµÄ×ÜĞĞÊı£¨¼õÈ¥Ê×ĞĞ£©
-            sht.Range("A2").Resize(xrow, 7).Copy rng  '°Ñ´Ë¹¤×÷±í´ÓA2µ¥Ôª¸ñ¿ªÊ¼µÄ£¬xrowĞĞ£¬7ÁĞÕâ¿éÇøÓò£¬¸´ÖÆµ½»î¶¯¹¤×÷±íµÚÒ»¸ö·Ç¿Õµ¥Ôª¸ñ
+        If sht.Name <> ActiveSheet.Name Then     'å¦‚æœå·¥ä½œè¡¨ä¸æ˜¯å½“å‰æ¿€æ´»çš„è¡¨
+            Set rng = Range("A65536").End(xlUp).Offset(1, 0)  'å–å¾—å½“å‰è¡¨Aåˆ—ç¬¬ä¸€ä¸ªéç©ºå•å…ƒæ ¼
+            xrow = sht.Range("A1").CurrentRegion.Rows.Count - 1  'å–å¾—è¦å¤åˆ¶çš„å·¥ä½œè¡¨çš„æ€»è¡Œæ•°ï¼ˆå‡å»é¦–è¡Œï¼‰
+            sht.Range("A2").Resize(xrow, 7).Copy rng  'æŠŠæ­¤å·¥ä½œè¡¨ä»A2å•å…ƒæ ¼å¼€å§‹çš„ï¼Œxrowè¡Œï¼Œ7åˆ—è¿™å—åŒºåŸŸï¼Œå¤åˆ¶åˆ°æ´»åŠ¨å·¥ä½œè¡¨ç¬¬ä¸€ä¸ªéç©ºå•å…ƒæ ¼
         End If
     Next
     
-    'É¾³ı³ıÁËµÚÒ»ÕÅ±íÍâµÄ¸÷±íĞĞÍ·
+    'åˆ é™¤é™¤äº†ç¬¬ä¸€å¼ è¡¨å¤–çš„å„è¡¨è¡Œå¤´
     xrow = Range("B1").CurrentRegion.Rows.Count
     lastCount = "B5:" & "B" & xrow
     Set rngS = Range(lastCount)
     
     For Each rng In rngS
         
-        If InStr(rng, "Ò³Âë") > 0 Then   'Èç¹û¸Ãµ¥Ôª¸ñµÄÖµ°üº¬¡°Ò³Âë¡±Õâ¸ö´Ê
-           rng.EntireRow.Delete   'É¾³ı´ËĞĞ
+        If InStr(rng, "é¡µç ") > 0 Then   'å¦‚æœè¯¥å•å…ƒæ ¼çš„å€¼åŒ…å«â€œé¡µç â€è¿™ä¸ªè¯
+           rng.EntireRow.Delete   'åˆ é™¤æ­¤è¡Œ
            'ActiveSheet.Rows(rng.Row).Delete
         End If
     
@@ -103,29 +103,29 @@ Public Sub copyIM() '¶à±íÊı¾İºÏ²¢µ½ĞÂ±í
 End Sub
 
 
-Sub copyWorkbook()   '°ÑÍ¬Ò»ÎÄ¼ş¼ĞÄÚµÄËùÓĞ¹¤×÷²¾ºÏ²¢³ÉÒ»¸öĞÂµÄ¹¤×÷²¾
+Sub copyWorkbook()   'æŠŠåŒä¸€æ–‡ä»¶å¤¹å†…çš„æ‰€æœ‰å·¥ä½œç°¿åˆå¹¶æˆä¸€ä¸ªæ–°çš„å·¥ä½œç°¿
     
     
-    '»ñÈ¡Òª¸´ÖÆÎÄ¼şËùÔÚµÄÄ¿Â¼Ãû--------------***
+    'è·å–è¦å¤åˆ¶æ–‡ä»¶æ‰€åœ¨çš„ç›®å½•å--------------***
     Dim copyFilePath As String
-    With Application.FileDialog(msoFileDialogFolderPicker)     '´ò¿ªÎÄ¼ş¶Ô»°¿ò£¬Ñ¡ÔñÒª¸´ÖÆµÄÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ
-        .InitialFileName = "C:\"                                '³õÊ¼ÎÄ¼ş¼ĞÎªCÅÌ¸ùÄ¿Â¼
-        .Title = "ÇëÑ¡ÔñÒª¸´ÖÆµÄÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ"
+    With Application.FileDialog(msoFileDialogFolderPicker)     'æ‰“å¼€æ–‡ä»¶å¯¹è¯æ¡†ï¼Œé€‰æ‹©è¦å¤åˆ¶çš„æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹
+        .InitialFileName = "C:\"                                'åˆå§‹æ–‡ä»¶å¤¹ä¸ºCç›˜æ ¹ç›®å½•
+        .Title = "è¯·é€‰æ‹©è¦å¤åˆ¶çš„æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹"
         .Show
-        If .SelectedItems.Count > 0 Then                        'Èç¹ûÑ¡ÔñÁËÎÄ¼ş¼Ğ
+        If .SelectedItems.Count > 0 Then                        'å¦‚æœé€‰æ‹©äº†æ–‡ä»¶å¤¹
            copyFilePath = .SelectedItems(1)
            'MsgBox copyFilePath
            Else
-            MsgBox "Ã»ÓĞÑ¡ÔñÈÎºÎÄ¿Â¼£¬ÍË³ö³ÌĞò"
+            MsgBox "æ²¡æœ‰é€‰æ‹©ä»»ä½•ç›®å½•ï¼Œé€€å‡ºç¨‹åº"
             Exit Sub
         End If
     End With
     '***----------------------------------****
     
     
-    'Ñ¡ÔñÊÇÈ«²¿¸´ÖÆ£¬»¹ÊÇ²»¸´ÖÆ±íÍ·----------------***
+    'é€‰æ‹©æ˜¯å…¨éƒ¨å¤åˆ¶ï¼Œè¿˜æ˜¯ä¸å¤åˆ¶è¡¨å¤´----------------***
     Dim fullCopy As Boolean
-    If MsgBox("Õû±í¸´ÖÆÇëÑ¡¡°ÊÇ¡±£¬Ö»±£ÁôÒ»·İ±íÍ·ÇëÑ¡¡°·ñ¡±", vbYesNo, "ÇëÑ¡Ôñ¸´ÖÆ·½Ê½") = vbYes Then
+    If MsgBox("æ•´è¡¨å¤åˆ¶è¯·é€‰â€œæ˜¯â€ï¼Œåªä¿ç•™ä¸€ä»½è¡¨å¤´è¯·é€‰â€œå¦â€", vbYesNo, "è¯·é€‰æ‹©å¤åˆ¶æ–¹å¼") = vbYes Then
         fullCopy = True
     Else
         fullCopy = False
@@ -133,28 +133,28 @@ Sub copyWorkbook()   '°ÑÍ¬Ò»ÎÄ¼ş¼ĞÄÚµÄËùÓĞ¹¤×÷²¾ºÏ²¢³ÉÒ»¸öĞÂµÄ¹¤×÷²¾
     '***-------------------------------------------****
 
     Dim wb As Workbook, Erow As Long, fn As String, FileName As String, sht As Worksheet
-    Application.Workbooks.Add  'ĞÂ½¨Ò»¸ö¹¤×÷²¾
+    Application.Workbooks.Add  'æ–°å»ºä¸€ä¸ªå·¥ä½œç°¿
     
    
     Application.ScreenUpdating = False
-    FileName = Dir(copyFilePath & "\*.*") 'Òª¸´ÖÆµÄÎÄ¼şÃû
-    Dim bt As Boolean      'Éè¶¨±íÍ·ÊÇ·ñÒÑ¸´ÖÆ
+    FileName = Dir(copyFilePath & "\*.*") 'è¦å¤åˆ¶çš„æ–‡ä»¶å
+    Dim bt As Boolean      'è®¾å®šè¡¨å¤´æ˜¯å¦å·²å¤åˆ¶
     bt = False
     Do While FileName <> ""
-        fn = copyFilePath & "\" & FileName 'Òª¸´ÖÆµÄÎÄ¼şÈ«Â·¾¶Ãû
-        Set wb = GetObject(fn)  '½«fn´ú±íµÄ¹¤×÷²¾¶ÔÏó¸³¸ø±äÁ¿
-        Set sht = wb.Worksheets(1) '»ã×ÜµÚ1ÕÅ¹¤×÷±í
+        fn = copyFilePath & "\" & FileName 'è¦å¤åˆ¶çš„æ–‡ä»¶å…¨è·¯å¾„å
+        Set wb = GetObject(fn)  'å°†fnä»£è¡¨çš„å·¥ä½œç°¿å¯¹è±¡èµ‹ç»™å˜é‡
+        Set sht = wb.Worksheets(1) 'æ±‡æ€»ç¬¬1å¼ å·¥ä½œè¡¨
         
-        'È¡µÃ»ã×Ü±íµÚÒ»¸ö·Ç¿ÕĞĞ---------------------
+        'å–å¾—æ±‡æ€»è¡¨ç¬¬ä¸€ä¸ªéç©ºè¡Œ---------------------
         If ActiveSheet.Cells(Rows.Count, 1).End(xlUp).Value = "" Then
                 Erow = 1
             Else
                 Erow = ActiveSheet.Cells(Rows.Count, 1).End(xlUp).Row + 1
         End If
        
-        If fullCopy = True Then                                'È«±í¸´ÖÆ
+        If fullCopy = True Then                                'å…¨è¡¨å¤åˆ¶
             sht.UsedRange.Copy ActiveSheet.Cells(Erow, 1)
-        Else                                                  'Ö»¸´ÖÆÒ»´Î±íÍ·
+        Else                                                  'åªå¤åˆ¶ä¸€æ¬¡è¡¨å¤´
             If bt = False Then
                 sht.UsedRange.Copy ActiveSheet.Cells(Erow, 1)
                 bt = True
@@ -163,16 +163,16 @@ Sub copyWorkbook()   '°ÑÍ¬Ò»ÎÄ¼ş¼ĞÄÚµÄËùÓĞ¹¤×÷²¾ºÏ²¢³ÉÒ»¸öĞÂµÄ¹¤×÷²¾
             End If
         End If
         
-        wb.Close False    '¹Ø±ÕÒÑ¸´ÖÆµÄ¹¤×÷²¾
-        FileName = Dir    '¶¨Î»ÏÂÒ»¸öÒª¸´ÖÆµÄ¹¤×÷²¾
+        wb.Close False    'å…³é—­å·²å¤åˆ¶çš„å·¥ä½œç°¿
+        FileName = Dir    'å®šä½ä¸‹ä¸€ä¸ªè¦å¤åˆ¶çš„å·¥ä½œç°¿
     Loop
    Application.ScreenUpdating = True
       
 End Sub
 
-Sub delRow()   'É¾³ıÄ³¸öÌØ¶¨µ¥Ôª¸ñËùÔÚµÄĞĞ
+Sub delRow()   'åˆ é™¤æŸä¸ªç‰¹å®šå•å…ƒæ ¼æ‰€åœ¨çš„è¡Œ
     Dim specialWord As String
-    specialWord = Application.InputBox("ÇëÊäÈëÒªÉ¾³ıËùÔÚĞĞµÄµ¥´Ê")
+    specialWord = Application.InputBox("è¯·è¾“å…¥è¦åˆ é™¤æ‰€åœ¨è¡Œçš„å•è¯")
     
     If specialWord = "" Then Exit Sub
     
@@ -189,7 +189,7 @@ Sub delRow()   'É¾³ıÄ³¸öÌØ¶¨µ¥Ôª¸ñËùÔÚµÄĞĞ
 
 End Sub
 
-Sub ÌáÈ¡µ¥Ôª¸ñÖĞÊı×Ö²¢ÇóºÍ()
+Sub æå–å•å…ƒæ ¼ä¸­æ•°å­—å¹¶æ±‚å’Œ()
     Dim total As Single
     Dim txt As String
     txt = ActiveCell.Offset(0, -1).Value
@@ -204,16 +204,16 @@ Sub ÌáÈ¡µ¥Ôª¸ñÖĞÊı×Ö²¢ÇóºÍ()
     For i = 1 To txtLen
         Dim tmp
         tmp = Mid(txt, i, 1)
-        If VBA.IsNumeric(tmp) = False And tmp <> "." Then  'ÅĞ¶ÏÊÇ²»ÊÇÊı×ÖºÍĞ¡Êıµã
-              If start Then  '²»ÊÇÊı×ÖºÍĞ¡Êıµã£¬¼ì²âÊÇ·ñ¿ªÊ¼¼ÆÊı
-              'ÒÑ¿ªÊ¼¼ÆÊı
+        If VBA.IsNumeric(tmp) = False And tmp <> "." Then  'åˆ¤æ–­æ˜¯ä¸æ˜¯æ•°å­—å’Œå°æ•°ç‚¹
+              If start Then  'ä¸æ˜¯æ•°å­—å’Œå°æ•°ç‚¹ï¼Œæ£€æµ‹æ˜¯å¦å¼€å§‹è®¡æ•°
+              'å·²å¼€å§‹è®¡æ•°
               total = total + Val(tmpNum)
               printIfo = printIfo & tmpNum & "+"
               tmpNum = ""
               start = False
               
               End If
-        Else        'ÊÇÊı×ÖºÍĞ¡Êıµã
+        Else        'æ˜¯æ•°å­—å’Œå°æ•°ç‚¹
             If start = False Then start = True
             If Left(tmpNum, 1) = "." Then tmpNum = ""
             tmpNum = tmpNum & tmp
@@ -236,29 +236,29 @@ Sub ÌáÈ¡µ¥Ôª¸ñÖĞÊı×Ö²¢ÇóºÍ()
     
 End Sub
 
-Public Sub copyAllSheets() 'Í¬¹¤×÷²¾¶à±íºÏ²¢
+Public Sub copyAllSheets() 'åŒå·¥ä½œç°¿å¤šè¡¨åˆå¹¶
     Dim sht As Worksheet, xrow As Integer, rng As Range
     Dim lastCount As String
     Dim rngS As Range
     
-    Worksheets.Add(before:=Worksheets(1)).Name = "ºÏ²¢±í" & WorksheetFunction.Substitute(Now(), ":", "-")
+    Worksheets.Add(before:=Worksheets(1)).Name = "åˆå¹¶è¡¨" & WorksheetFunction.Substitute(Now(), ":", "-")
     
-    '¸´ÖÆ¸÷±íÊı¾İµ½ĞÂ±í
+    'å¤åˆ¶å„è¡¨æ•°æ®åˆ°æ–°è¡¨
     For Each sht In Worksheets
-        If sht.Name <> ActiveSheet.Name Then     'Èç¹û¹¤×÷±í²»ÊÇµ±Ç°¼¤»îµÄ±í
+        If sht.Name <> ActiveSheet.Name Then     'å¦‚æœå·¥ä½œè¡¨ä¸æ˜¯å½“å‰æ¿€æ´»çš„è¡¨
             If Range("A1") = "" And Range("B1") = "" Then
                 Set rng = Range("A1")
             Else
-                Set rng = Range("A65536").End(xlUp).Offset(1, 0)  'È¡µÃµ±Ç°±íAÁĞµÚÒ»¸ö·Ç¿Õµ¥Ôª¸ñ
+                Set rng = Range("A65536").End(xlUp).Offset(1, 0)  'å–å¾—å½“å‰è¡¨Aåˆ—ç¬¬ä¸€ä¸ªéç©ºå•å…ƒæ ¼
             End If
                     
-            'xrow = sht.Range("A1").CurrentRegion.Rows.Count - 1  'È¡µÃÒª¸´ÖÆµÄ¹¤×÷±íµÄ×ÜĞĞÊı£¨¼õÈ¥Ê×ĞĞ£©
-            'sht.Range("A2").Resize(xrow, 7).Copy rng  '°Ñ´Ë¹¤×÷±í´ÓA2µ¥Ôª¸ñ¿ªÊ¼µÄ£¬xrowĞĞ£¬7ÁĞÕâ¿éÇøÓò£¬¸´ÖÆµ½»î¶¯¹¤×÷±íµÚÒ»¸ö·Ç¿Õµ¥Ôª¸ñ
+            'xrow = sht.Range("A1").CurrentRegion.Rows.Count - 1  'å–å¾—è¦å¤åˆ¶çš„å·¥ä½œè¡¨çš„æ€»è¡Œæ•°ï¼ˆå‡å»é¦–è¡Œï¼‰
+            'sht.Range("A2").Resize(xrow, 7).Copy rng  'æŠŠæ­¤å·¥ä½œè¡¨ä»A2å•å…ƒæ ¼å¼€å§‹çš„ï¼Œxrowè¡Œï¼Œ7åˆ—è¿™å—åŒºåŸŸï¼Œå¤åˆ¶åˆ°æ´»åŠ¨å·¥ä½œè¡¨ç¬¬ä¸€ä¸ªéç©ºå•å…ƒæ ¼
             sht.UsedRange.Copy rng
         End If
     Next
     
-    'É¾³ı³ıÁËµÚÒ»ÕÅ±íÍâµÄ¸÷±íĞĞÍ·
+    'åˆ é™¤é™¤äº†ç¬¬ä¸€å¼ è¡¨å¤–çš„å„è¡¨è¡Œå¤´
 '    xrow = Range("B1").CurrentRegion.Rows.Count
 '    lastCount = "B5:" & "B" & xrow
 '    Set rngS = Range(lastCount)
@@ -266,8 +266,8 @@ Public Sub copyAllSheets() 'Í¬¹¤×÷²¾¶à±íºÏ²¢
    
 '    For Each rng In rngS
 '
-'        If InStr(rng, "Ò³Âë") > 0 Then   'Èç¹û¸Ãµ¥Ôª¸ñµÄÖµ°üº¬¡°Ò³Âë¡±Õâ¸ö´Ê
-'           rng.EntireRow.Delete   'É¾³ı´ËĞĞ
+'        If InStr(rng, "é¡µç ") > 0 Then   'å¦‚æœè¯¥å•å…ƒæ ¼çš„å€¼åŒ…å«â€œé¡µç â€è¿™ä¸ªè¯
+'           rng.EntireRow.Delete   'åˆ é™¤æ­¤è¡Œ
 '           'ActiveSheet.Rows(rng.Row).Delete
 '        End If
 '
@@ -286,7 +286,7 @@ total = 0
 For i = 1 To 450
     If Cells(i, "S") = "" Then
         Cells(i, "S") = total
-        Cells(i, "S").Offset(0, -1) = "ºÏ¼Æ"
+        Cells(i, "S").Offset(0, -1) = "åˆè®¡"
         total = 0
     Else
         total = total + Cells(i, "S").Value
@@ -295,15 +295,15 @@ Next i
 Application.ScreenUpdating = True
 End Sub
 
-Sub old¾ºÆ·Êı¾İÔ¤´¦Àí()
-    '»ñÈ¡×ÜĞĞÊı
+Sub oldç«å“æ•°æ®é¢„å¤„ç†()
+    'è·å–æ€»è¡Œæ•°
     Dim num As Long
     'Range("A1").Select
     'Range("A1").End(xlDown).Select
     'num = ActiveCell.Row
     num = Cells(Rows.Count, 1).End(xlUp).Row
     
-    '¹Ø±ÕEXCELË¢ĞÂ
+    'å…³é—­EXCELåˆ·æ–°
     Application.ScreenUpdating = False
     
     Columns("B:B").Delete Shift:=xlToLeft
@@ -335,7 +335,7 @@ Sub old¾ºÆ·Êı¾İÔ¤´¦Àí()
 
     
     Columns("I:I").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Columns("I:I").NumberFormatLocal = "G/Í¨ÓÃ¸ñÊ½"
+    Columns("I:I").NumberFormatLocal = "G/é€šç”¨æ ¼å¼"
     
     With Range("I1")
         .HorizontalAlignment = xlGeneral
@@ -346,39 +346,39 @@ Sub old¾ºÆ·Êı¾İÔ¤´¦Àí()
         .ShrinkToFit = False
         .ReadingOrder = xlContext
         .MergeCells = False
-        .Value = "µ±ÔÂÈÕÆÚ"
+        .Value = "å½“æœˆæ—¥æœŸ"
     End With
-    'ActiveCell.FormulaR1C1 = "µ±ÔÂÈÕÆÚ"
+    'ActiveCell.FormulaR1C1 = "å½“æœˆæ—¥æœŸ"
     Range("I2").Formula = "=DAY(H2)"
     Range("I2").AutoFill Destination:=Range("I2:I" & num)
     Columns("H:H").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
  
 
-    Range("H1").Formula = "ÅäËÍÆóÒµ¼ò³Æ"
-    Range("H2").Formula = "=IFERROR(VLOOKUP(G2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í1[#All],2,0),"""")"
-    'Range("H2").Formula = "=IFERROR(G2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í1[#All],2,0),"""")"
+    Range("H1").Formula = "é…é€ä¼ä¸šç®€ç§°"
+    Range("H2").Formula = "=IFERROR(VLOOKUP(G2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨1[#All],2,0),"""")"
+    'Range("H2").Formula = "=IFERROR(G2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨1[#All],2,0),"""")"
     Range("H2").AutoFill Destination:=Range("H2:H" & num)
     Columns("H:H").EntireColumn.AutoFit
     Columns("G:G").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
 
-    Range("G1").Formula = "¼²¿Ø¼ò³Æ"
-    Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í2[#All],2,0),"""")"
-    'Range("G2").Formula = "=IFERROR(H2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í1[#All],2,0),"""")"
+    Range("G1").Formula = "ç–¾æ§ç®€ç§°"
+    Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨2[#All],2,0),"""")"
+    'Range("G2").Formula = "=IFERROR(H2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨1[#All],2,0),"""")"
     Range("G2").AutoFill Destination:=Range("G2:G" & num)
     Columns("F:F").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("F1").Formula = "Éê±¨ÆóÒµ¼ò³Æ"
-    Range("F2").Formula = "=IFERROR(VLOOKUP(E2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í3[#All],2,0),"""")"
+    Range("F1").Formula = "ç”³æŠ¥ä¼ä¸šç®€ç§°"
+    Range("F2").Formula = "=IFERROR(VLOOKUP(E2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨3[#All],2,0),"""")"
     Range("F2").AutoFill Destination:=Range("F2:F" & num)
     Columns("F:F").EntireColumn.AutoFit
     'Columns("E:E").Select
     Columns("D:D").Delete Shift:=xlToLeft
     Columns("D:D").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("D1").Formula = "¹æ¸ñ"
-    Range("D2").FormulaR1C1 = "=IFERROR(IF(FIND(""Î÷ÁÖ"",RC[-1])>0,""Î÷ÁÖ""),IFERROR(IF(FIND(""Ô¤³ä"",RC[-1])>0,""Ô¤³ä""),""""))"
+    Range("D1").Formula = "è§„æ ¼"
+    Range("D2").FormulaR1C1 = "=IFERROR(IF(FIND(""è¥¿æ—"",RC[-1])>0,""è¥¿æ—""),IFERROR(IF(FIND(""é¢„å……"",RC[-1])>0,""é¢„å……""),""""))"
     Range("D2").AutoFill Destination:=Range("D2:D" & num)
     Columns("C:C").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("C1").Formula = "ÒßÃç¼ò³Æ"
-    Range("C2").FormulaR1C1 = "=IFERROR(VLOOKUP(RC[-1],[¾ºÆ·¶ÔÕÕ±í.xlsx]Sheet1!C8:C9,2,0),"""")"
+    Range("C1").Formula = "ç–«è‹—ç®€ç§°"
+    Range("C2").FormulaR1C1 = "=IFERROR(VLOOKUP(RC[-1],[ç«å“å¯¹ç…§è¡¨.xlsx]Sheet1!C8:C9,2,0),"""")"
     Range("C2").Select
     Selection.AutoFill Destination:=Range("C2:C" & num)
     Columns("C:C").EntireColumn.AutoFit
@@ -391,16 +391,16 @@ Sub old¾ºÆ·Êı¾İÔ¤´¦Àí()
     Selection.Delete Shift:=xlToLeft
     Range("A1").Select
     
-    '»Ö¸´ÆÁÄ»Ë¢ĞÂ
+    'æ¢å¤å±å¹•åˆ·æ–°
     Application.ScreenUpdating = True
     
-    MsgBox "´¦ÀíÍê³É£¡"
+    MsgBox "å¤„ç†å®Œæˆï¼"
 End Sub
 
 
 
-Function CaiQiang(ByVal rng As Range) '¼ÆËã²ËÇ®µÄ¹«Ê½
-    'Application.Volatile True 'Ò×Ê§ĞÔº¯Êı
+Function CaiQiang(ByVal rng As Range) 'è®¡ç®—èœé’±çš„å…¬å¼
+    'Application.Volatile True 'æ˜“å¤±æ€§å‡½æ•°
     Dim total As Single
     Dim txt As String
     txt = rng.Value
@@ -415,16 +415,16 @@ Function CaiQiang(ByVal rng As Range) '¼ÆËã²ËÇ®µÄ¹«Ê½
     For i = 1 To txtLen
         Dim tmp
         tmp = Mid(txt, i, 1)
-        If VBA.IsNumeric(tmp) = False And tmp <> "." Then  'ÅĞ¶ÏÊÇ²»ÊÇÊı×ÖºÍĞ¡Êıµã
-              If start Then  '²»ÊÇÊı×ÖºÍĞ¡Êıµã£¬¼ì²âÊÇ·ñ¿ªÊ¼¼ÆÊı
-              'ÒÑ¿ªÊ¼¼ÆÊı
+        If VBA.IsNumeric(tmp) = False And tmp <> "." Then  'åˆ¤æ–­æ˜¯ä¸æ˜¯æ•°å­—å’Œå°æ•°ç‚¹
+              If start Then  'ä¸æ˜¯æ•°å­—å’Œå°æ•°ç‚¹ï¼Œæ£€æµ‹æ˜¯å¦å¼€å§‹è®¡æ•°
+              'å·²å¼€å§‹è®¡æ•°
               total = total + Val(tmpNum)
               printIfo = printIfo & tmpNum & "+"
               tmpNum = ""
               start = False
               
               End If
-        Else        'ÊÇÊı×ÖºÍĞ¡Êıµã
+        Else        'æ˜¯æ•°å­—å’Œå°æ•°ç‚¹
             If start = False Then start = True
             If Left(tmpNum, 1) = "." Then tmpNum = ""
             tmpNum = tmpNum & tmp
@@ -446,11 +446,11 @@ End Function
 
 Sub AddDay()
     For Each r In Selection
-        r.Value = r.Value & "ÈÕ"
+        r.Value = r.Value & "æ—¥"
     Next r
 End Sub
-Sub ÈÕ±¨±íĞŞÕû()
-   '»ñÈ¡×ÜĞĞÊı
+Sub æ—¥æŠ¥è¡¨ä¿®æ•´()
+   'è·å–æ€»è¡Œæ•°
     Dim num As Long
     Range("A1").Select
     Range("A1").End(xlDown).Select
@@ -471,13 +471,13 @@ Sub ÈÕ±¨±íĞŞÕû()
     Application.CutCopyMode = False
     Selection.Delete Shift:=xlToLeft
     Range("A1").Select
-    ActiveCell.FormulaR1C1 = "ÉÌÆ·+¹æ¸ñ"
+    ActiveCell.FormulaR1C1 = "å•†å“+è§„æ ¼"
    ' Range("A2").Select
    ' Application.SendKeys ("^a")
     
 
     
-    'ËùÓĞµ¥Ôª¸ñ¼ÓÈ«¿òÏß,¾ÓÖĞ£¬ÉèĞĞ¸ß
+    'æ‰€æœ‰å•å…ƒæ ¼åŠ å…¨æ¡†çº¿,å±…ä¸­ï¼Œè®¾è¡Œé«˜
     Range("B2").CurrentRegion.Select
    ' Application.SendKeys ("^a")
     'Application.Wait (Now + TimeValue("00:00:01"))
@@ -543,7 +543,7 @@ Sub ÈÕ±¨±íĞŞÕû()
     Range("B2").CurrentRegion.Select
 
 End Sub
-Sub ÉèÖÃÉ«½×()
+Sub è®¾ç½®è‰²é˜¶()
     Dim colorArr(2) As Integer
     colorArr(0) = 35
     colorArr(1) = 19
@@ -563,13 +563,13 @@ Sub ÉèÖÃÉ«½×()
         End If
     Next
     
-   'ÉèÖÃ×îºóÒ»ĞĞÉ«½×
+   'è®¾ç½®æœ€åä¸€è¡Œè‰²é˜¶
    With Range(Cells(Selection.Row + Selection.Rows.Count - 1, Selection.Column), Cells(Selection.Row + Selection.Rows.Count - 1, Selection.Column + Selection.Columns.Count - 1))
         .Interior.Color = RGB(91, 155, 213)
         .Font.Color = RGB(255, 255, 255)
    End With
    
-    'ÉèÖÃµÚÒ»ĞĞÉ«½×
+    'è®¾ç½®ç¬¬ä¸€è¡Œè‰²é˜¶
     With Range(Cells(Selection.Row, Selection.Column), Cells(Selection.Row, Selection.Column + Selection.Columns.Count - 1))
         .Interior.Color = RGB(91, 155, 213)
         .Font.Color = RGB(255, 255, 255)
@@ -578,7 +578,7 @@ Sub ÉèÖÃÉ«½×()
   
 End Sub
 
-Sub É«½×()
+Sub è‰²é˜¶()
 
     Dim rng As Range
     Dim hadColor As Boolean
@@ -608,23 +608,23 @@ End Sub
 
 Function timeSection(ByVal rng1 As Range, rng2 As Range)
     If rng1 >= 8 And rng1 < 12 Then
-        timeSection = "8-12µã"
+        timeSection = "8-12ç‚¹"
     ElseIf (rng1 >= 12 And rng1 < 14) Or (rng1 = 14 And rng2 < 30) Then
-            timeSection = "12µã-14:30"
+            timeSection = "12ç‚¹-14:30"
     ElseIf (rng1 = 14 And rng2 >= 30) Or (rng1 >= 15 And rng1 < 18) Then
             timeSection = "14:30 - 18:00"
     Else
-            timeSection = "18:00ÒÔºó"
+            timeSection = "18:00ä»¥å"
     End If
         
 End Function
 
-Sub ÌØ¶¨´ÊËùÔÚĞĞÌîÉ«()
+Sub ç‰¹å®šè¯æ‰€åœ¨è¡Œå¡«è‰²()
     Dim num As Long
     num = Range("A2").CurrentRegion.Columns.Count
     
     Dim specialWord As String
-    specialWord = Application.InputBox("ÇëÊäÈëĞèÒª¸ßÁÁĞĞ°üº¬µÄµ¥´Ê")
+    specialWord = Application.InputBox("è¯·è¾“å…¥éœ€è¦é«˜äº®è¡ŒåŒ…å«çš„å•è¯")
 
     If specialWord = "" Then Exit Sub
     Dim rng As Range
@@ -636,7 +636,7 @@ Sub ÌØ¶¨´ÊËùÔÚĞĞÌîÉ«()
     Next
 End Sub
 
-Function QyHeBinWenBen(ParamArray inp())  'ºÏ²¢µ¥Ôª¸ñÎÄ±¾
+Function QyHeBinWenBen(ParamArray inp())  'åˆå¹¶å•å…ƒæ ¼æ–‡æœ¬
     Dim i, j
 '    Dim score()
     For j = 0 To UBound(inp)
@@ -654,15 +654,15 @@ Function funTest(ParamArray inp())
 
 End Function
 
-Sub ¹«Ê½×ªÊıÖµ()
+Sub å…¬å¼è½¬æ•°å€¼()
     Dim ing As Range
     For Each ing In Selection
         If ing.HasFormula Then ing.Value = ing
     Next
 End Sub
 
-Public Sub ±£´æÈÕ±¨()
-   '¼ÓÈÕ---------------
+Public Sub ä¿å­˜æ—¥æŠ¥()
+   'åŠ æ—¥---------------
     Dim dayRow As Integer, dayColumn As Integer
     Dim dayColumnBegin As Integer
     Dim dayColumnEnd As Integer
@@ -671,37 +671,37 @@ Public Sub ±£´æÈÕ±¨()
     dayColumnBegin = Selection.Column + 3
     dayColumnEnd = Cells(Selection.Row, Selection.Column).End(xlToRight).Column - 1
     For i = dayColumnBegin To dayColumnEnd
-        Cells(dayRow, i) = Cells(dayRow, i) & "ÈÕ"
+        Cells(dayRow, i) = Cells(dayRow, i) & "æ—¥"
     Next
   '.-------------------END
     dayColumn = Cells(dayRow, Selection.Column).End(xlToRight).Column - 1
     
 
 
-    'È·¶¨ÎÄ¼şÃû
+    'ç¡®å®šæ–‡ä»¶å
     Dim sFileName As String
     Dim sdate As String
 
     If Val(Left(Cells(2, dayColumnEnd), Len(Cells(2, dayColumnEnd)) - 1)) < Day(Now()) Then
         sdate = Year(Now()) & "-" & Month(Now()) & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
-        'sFileName = "C:\Users\QingYun\Desktop\¾ºÆ·ÈÕ±¨" & "(" & sdate & ")"
-        sFileName = Environ("userprofile") & "\Desktop\" & "¾ºÆ·ÈÕ±¨" & "(" & sdate & ")"
+        'sFileName = "C:\Users\QingYun\Desktop\ç«å“æ—¥æŠ¥" & "(" & sdate & ")"
+        sFileName = Environ("userprofile") & "\Desktop\" & "ç«å“æ—¥æŠ¥" & "(" & sdate & ")"
     Else
         If Month(Now()) = 1 Then
            sdate = Year(Now()) - 1 & "-" & 12 & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
         Else
             sdate = Year(Now()) & "-" & Month(Now()) - 1 & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
         End If
-        sFileName = Environ("userprofile") & "\Desktop\" & "¾ºÆ·ÈÕ±¨" & "(" & sdate & ")"
+        sFileName = Environ("userprofile") & "\Desktop\" & "ç«å“æ—¥æŠ¥" & "(" & sdate & ")"
     End If
 
-   '±£´æÎÄ¼ş
+   'ä¿å­˜æ–‡ä»¶
    ActiveWorkbook.SaveAs (sFileName)
-   MsgBox "ÎÄ¼ş" & vbCrLf & sFileName & vbCrLf & "ÒÑ±£´æµ½×ÀÃæ"
+   MsgBox "æ–‡ä»¶" & vbCrLf & sFileName & vbCrLf & "å·²ä¿å­˜åˆ°æ¡Œé¢"
 End Sub
 
-Public Sub ±£´æ¼ò±¨()
-    '¼ÓÈÕ---------------------
+Public Sub ä¿å­˜ç®€æŠ¥()
+    'åŠ æ—¥---------------------
     Dim dayRow As Integer, dayColumn As Integer
     Dim dayColumnBegin As Integer
     Dim dayColumnEnd As Integer
@@ -710,7 +710,7 @@ Public Sub ±£´æ¼ò±¨()
     dayColumnBegin = Selection.Column + 3
     dayColumnEnd = Cells(Selection.Row, Selection.Column).End(xlToRight).Column
     For i = dayColumnBegin To dayColumnEnd
-        Cells(dayRow, i) = Cells(dayRow, i) & "ÈÕ"
+        Cells(dayRow, i) = Cells(dayRow, i) & "æ—¥"
     Next
    '-------------------------END
    
@@ -718,35 +718,35 @@ Public Sub ±£´æ¼ò±¨()
     
    Dim sFileName As String
    Dim sdate As String
-   'sFileName = "C:\Users\QingYun\Desktop\¾ºÆ·¼ò±¨" & "(" & Year(Now()) & "-" & Month(Now()) & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1) & ")"
+   'sFileName = "C:\Users\QingYun\Desktop\ç«å“ç®€æŠ¥" & "(" & Year(Now()) & "-" & Month(Now()) & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1) & ")"
     If Val(Left(Cells(2, dayColumnEnd), Len(Cells(2, dayColumnEnd)) - 1)) < Day(Now()) Then
         sdate = Year(Now()) & "-" & Month(Now()) & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
-        'sFileName = "C:\Users\QingYun\Desktop\¾ºÆ·ÈÕ±¨" & "(" & sdate & ")"
-        sFileName = Environ("userprofile") & "\Desktop\" & "¾ºÆ·¼ò±¨" & "(" & sdate & ")"
+        'sFileName = "C:\Users\QingYun\Desktop\ç«å“æ—¥æŠ¥" & "(" & sdate & ")"
+        sFileName = Environ("userprofile") & "\Desktop\" & "ç«å“ç®€æŠ¥" & "(" & sdate & ")"
     Else
         If Month(Now()) = 1 Then
            sdate = Year(Now()) - 1 & "-" & 12 & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
         Else
             sdate = Year(Now()) & "-" & Month(Now()) - 1 & "-" & Left(Cells(dayRow, dayColumn), Len(Cells(dayRow, dayColumn)) - 1)
         End If
-        sFileName = Environ("userprofile") & "\Desktop\" & "¾ºÆ·¼ò±¨" & "(" & sdate & ")"
+        sFileName = Environ("userprofile") & "\Desktop\" & "ç«å“ç®€æŠ¥" & "(" & sdate & ")"
     End If
    
    
    
    ActiveWorkbook.SaveAs (sFileName)
-   MsgBox "ÎÄ¼ş" & vbCrLf & sFileName & vbCrLf & "ÒÑ±£´æµ½×ÀÃæ"
+   MsgBox "æ–‡ä»¶" & vbCrLf & sFileName & vbCrLf & "å·²ä¿å­˜åˆ°æ¡Œé¢"
 End Sub
-Sub ³ıÁã()
+Sub é™¤é›¶()
     Dim rng As Range
     For Each rng In Selection
         If rng = 0 Then rng.ClearContents
     Next
 End Sub
 
-Sub Æ½Ì¨ºÏ²¢È¥ÖØ()
-    If InStr(ActiveWorkbook.Name, "ÒÑÈ·ÈÏÎ´ÅäËÍ") = 0 Then
-        MsgBox "´Ë½Å±¾²»ÊÊÓÃÓÚ±¾ÎÄ¼ş"
+Sub å¹³å°åˆå¹¶å»é‡()
+    If InStr(ActiveWorkbook.Name, "å·²ç¡®è®¤æœªé…é€") = 0 Then
+        MsgBox "æ­¤è„šæœ¬ä¸é€‚ç”¨äºæœ¬æ–‡ä»¶"
         Exit Sub
     End If
     Dim sStart As Long
@@ -754,8 +754,8 @@ Sub Æ½Ì¨ºÏ²¢È¥ÖØ()
     Dim wbk As Workbook
     Application.ScreenUpdating = False
     Range("A1").CurrentRegion.Copy
-    Set wbk = Workbooks.Open("F:\ÇàÔÆ\(synology)\¾ºÆ·\Æ½Ì¨»ã×ÜÈ¥ÖØ(×Ü±í2019-4-1Æğ).xlsx")
-    'Workbooks("Æ½Ì¨»ã×ÜÈ¥ÖØ(×Ü±í).xlsx").Activate
+    Set wbk = Workbooks.Open("F:\é’äº‘\(synology)\ç«å“\å¹³å°æ±‡æ€»å»é‡(æ€»è¡¨2019-4-1èµ·).xlsx")
+    'Workbooks("å¹³å°æ±‡æ€»å»é‡(æ€»è¡¨).xlsx").Activate
    
     sStart = Range("A1").End(xlDown).Row
    
@@ -767,15 +767,15 @@ Sub Æ½Ì¨ºÏ²¢È¥ÖØ()
     
     ActiveWindow.ScrollRow = 1
     Application.ScreenUpdating = True
-    MsgBox "Ô­¼ÇÂ¼Êı£º " & sStart & vbCrLf & "×Ü¼ÇÂ¼Êı£º " & sEnd & "" & vbCrLf & "±¾´ÎĞÂÔö¼ÇÂ¼Êı£º " & sEnd - sStart
+    MsgBox "åŸè®°å½•æ•°ï¼š " & sStart & vbCrLf & "æ€»è®°å½•æ•°ï¼š " & sEnd & "" & vbCrLf & "æœ¬æ¬¡æ–°å¢è®°å½•æ•°ï¼š " & sEnd - sStart
     
 End Sub
 
-Sub ÏÔÊ¾ÎÄ¼şÂ·¾¶()
+Sub æ˜¾ç¤ºæ–‡ä»¶è·¯å¾„()
     MsgBox ActiveWorkbook.Path
 End Sub
 
-Sub È¡ÏûÉ¸Ñ¡()
+Sub å–æ¶ˆç­›é€‰()
     Dim rng As Range
     Dim rngAdress As String
     Dim rngLength As Integer
@@ -789,7 +789,7 @@ Sub È¡ÏûÉ¸Ñ¡()
     Next i
 End Sub
 
-Sub É¾³ı¿ÕĞĞ()
+Sub åˆ é™¤ç©ºè¡Œ()
     Dim rng As Range
     Set rng = Cells(Rows.Count, 1).End(xlUp)
     For i = rng.Row To 1 Step -1
@@ -799,13 +799,13 @@ Sub É¾³ı¿ÕĞĞ()
     Next i
 End Sub
 
-Sub ¼Ó¿ÕĞĞ()
+Sub åŠ ç©ºè¡Œ()
     Dim vCln
     Dim iCln As Integer
     Dim lStart As Long
-    vCln = InputBox("ÇëÊäÈë×öÎª¼Ó¿ÕĞĞÒÀ¾İµÄÁĞºÅ£¨Êı×Ö)")
+    vCln = InputBox("è¯·è¾“å…¥åšä¸ºåŠ ç©ºè¡Œä¾æ®çš„åˆ—å·ï¼ˆæ•°å­—)")
     If Not (IsNumeric(iCln)) Then
-        MsgBox "ÁĞºÅ²»ÊÇÊı×Ö£¬³ÌĞò×Ô¶¯ÍË³ö"
+        MsgBox "åˆ—å·ä¸æ˜¯æ•°å­—ï¼Œç¨‹åºè‡ªåŠ¨é€€å‡º"
         Exit Sub
     End If
     iCln = Val(vCln)
@@ -817,7 +817,7 @@ Sub ¼Ó¿ÕĞĞ()
     Next i
 End Sub
 
-Sub ÕıÔò²ËÇ®()
+Sub æ­£åˆ™èœé’±()
     Dim objRegExp As Object
     Dim objMh As Object
     Dim i As Integer
@@ -846,12 +846,12 @@ Sub ÕıÔò²ËÇ®()
     ActiveCell = dTotal
     
 End Sub
-Sub ¾ºÆ·Êı¾İÔ¤´¦Àí()
-    '»ñÈ¡×ÜĞĞÊı
+Sub ç«å“æ•°æ®é¢„å¤„ç†()
+    'è·å–æ€»è¡Œæ•°
     Dim num As Long
     num = Cells(Rows.Count, 1).End(xlUp).Row
     
-    '¹Ø±ÕEXCELË¢ĞÂ
+    'å…³é—­EXCELåˆ·æ–°
     Application.ScreenUpdating = False
     
    Range("T:T,S:S,R:R,Q:Q,I:I,H:H,G:G,E:E,D:D,B:B").Delete Shift:=xlToLeft
@@ -881,7 +881,7 @@ Sub ¾ºÆ·Êı¾İÔ¤´¦Àí()
 
     
     Columns("H:H").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Columns("H:H").NumberFormatLocal = "G/Í¨ÓÃ¸ñÊ½"
+    Columns("H:H").NumberFormatLocal = "G/é€šç”¨æ ¼å¼"
     
     With Range("H1")
         .HorizontalAlignment = xlGeneral
@@ -892,37 +892,37 @@ Sub ¾ºÆ·Êı¾İÔ¤´¦Àí()
         .ShrinkToFit = False
         .ReadingOrder = xlContext
         .MergeCells = False
-        .Value = "µ±ÔÂÈÕÆÚ"
+        .Value = "å½“æœˆæ—¥æœŸ"
     End With
     Range("H2").Formula = "=DAY(G2)"
     Range("H2").AutoFill Destination:=Range("H2:H" & num)
     Columns("G:G").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
  
 
-    Range("G1").Formula = "ÅäËÍÆóÒµ¼ò³Æ"
-    Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!$F$2:$G$100,2,0),"""")"
-    'Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í1[#All],2,0),"""")"
-    'Range("G2").Formula2R1C1 = "=IFERROR(VLOOKUP(RC[-1],'F:\ÇàÔÆ\(synology)\¾ºÆ·\[¾ºÆ·¶ÔÕÕ±í.xlsx]Sheet1'!±í1[#All],2,0),"""")"
+    Range("G1").Formula = "é…é€ä¼ä¸šç®€ç§°"
+    Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!$F$2:$G$100,2,0),"""")"
+    'Range("G2").Formula = "=IFERROR(VLOOKUP(F2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨1[#All],2,0),"""")"
+    'Range("G2").Formula2R1C1 = "=IFERROR(VLOOKUP(RC[-1],'F:\é’äº‘\(synology)\ç«å“\[ç«å“å¯¹ç…§è¡¨.xlsx]Sheet1'!è¡¨1[#All],2,0),"""")"
     Range("G2").AutoFill Destination:=Range("G2:G" & num)
     Columns("G:G").EntireColumn.AutoFit
     Columns("F:F").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
 
-    Range("F1").Formula = "¼²¿Ø¼ò³Æ"
-    Range("F2").Formula = "=IFERROR(VLOOKUP(E2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!$B$2:$C$200,2,0),"""")"
-    'Range("G2").Formula = "=IFERROR(H2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!±í1[#All],2,0),"""")"
+    Range("F1").Formula = "ç–¾æ§ç®€ç§°"
+    Range("F2").Formula = "=IFERROR(VLOOKUP(E2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!$B$2:$C$200,2,0),"""")"
+    'Range("G2").Formula = "=IFERROR(H2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!è¡¨1[#All],2,0),"""")"
     Range("F2").AutoFill Destination:=Range("F2:F" & num)
     Columns("E:E").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("E1").Formula = "Éê±¨ÆóÒµ¼ò³Æ"
-    Range("E2").Formula = "=IFERROR(VLOOKUP(D2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!$D$2:$E$200,2,0),"""")"
+    Range("E1").Formula = "ç”³æŠ¥ä¼ä¸šç®€ç§°"
+    Range("E2").Formula = "=IFERROR(VLOOKUP(D2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!$D$2:$E$200,2,0),"""")"
     Range("E2").AutoFill Destination:=Range("E2:E" & num)
     Columns("E:E").EntireColumn.AutoFit
     Columns("D:D").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("D1").Formula = "¹æ¸ñ"
-    Range("D2").Formula = "=IFS(C2=""Æ¿"",""Î÷ÁÖ"",C2=""Ö§"",""Ô¤³ä"",TRUE,"""")"
+    Range("D1").Formula = "è§„æ ¼"
+    Range("D2").Formula = "=IFS(C2=""ç“¶"",""è¥¿æ—"",C2=""æ”¯"",""é¢„å……"",TRUE,"""")"
     Range("D2").AutoFill Destination:=Range("D2:D" & num)
     Columns("C:C").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-    Range("C1").Formula = "ÒßÃç¼ò³Æ"
-    Range("C2").Formula = "=IFERROR(VLOOKUP(B2,'F:\ÇàÔÆ\(synology)\¾ºÆ·\¾ºÆ·¶ÔÕÕ±í.xlsx'!$H$2:$I$200,2,0),"""")"
+    Range("C1").Formula = "ç–«è‹—ç®€ç§°"
+    Range("C2").Formula = "=IFERROR(VLOOKUP(B2,'F:\é’äº‘\(synology)\ç«å“\ç«å“å¯¹ç…§è¡¨.xlsx'!$H$2:$I$200,2,0),"""")"
     Range("C2").AutoFill Destination:=Range("C2:C" & num)
     Columns("C:C").EntireColumn.AutoFit
     Range("A1:P" & num).Select
@@ -933,13 +933,13 @@ Sub ¾ºÆ·Êı¾İÔ¤´¦Àí()
     Columns("D:D").Delete Shift:=xlToLeft
     Range("A1").Select
     
-    '»Ö¸´ÆÁÄ»Ë¢ĞÂ
+    'æ¢å¤å±å¹•åˆ·æ–°
     Application.ScreenUpdating = True
     
-    MsgBox "´¦ÀíÍê³É£¡"
+    MsgBox "å¤„ç†å®Œæˆï¼"
 End Sub
 
-Sub ¸üĞÂÉÌÎñÀíÊÂ¿â´æ±í()
+Sub æ›´æ–°å•†åŠ¡ç†äº‹åº“å­˜è¡¨()
     Dim fso As Object
     Dim fsoFile As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
@@ -947,15 +947,15 @@ Sub ¸üĞÂÉÌÎñÀíÊÂ¿â´æ±í()
     sTokill = ActiveWorkbook.FullName
     On Error GoTo handle:
     Application.DisplayAlerts = False
-    ActiveWorkbook.SaveAs "\\YBM-DYJ-PC\share\¿â´æ.xls"
+    ActiveWorkbook.SaveAs "\\YBM-DYJ-PC\share\åº“å­˜.xls"
     Application.DisplayAlerts = True
-    MsgBox "¿â´æÒÑ¸üĞÂ!"
+    MsgBox "åº“å­˜å·²æ›´æ–°!"
     
     If Right(sTokill, 4) = "xlam" Then
         Exit Sub
     Else
         fso.deletefile sTokill
-        MsgBox "ÎÄ¼ş " & fso.getfilename(sTokill) & " ÒÑÉ¾³ı"
+        MsgBox "æ–‡ä»¶ " & fso.getfilename(sTokill) & " å·²åˆ é™¤"
         Set fso = Nothing
     End If
     
@@ -963,25 +963,25 @@ Sub ¸üĞÂÉÌÎñÀíÊÂ¿â´æ±í()
     Exit Sub
    
 handle:
-    MsgBox "³ö´íÁË£¬Çë¼ì²é£¡"
+    MsgBox "å‡ºé”™äº†ï¼Œè¯·æ£€æŸ¥ï¼"
        
 End Sub
 
-Sub ´¦Àí½»¸îµ¥()
-    'ÅĞ¶ÏÊÇ·ñÊÇ½»¸îµ¥£¬²»ÊÇÔòÍË³ö
-    If InStr(ActiveWorkbook.Name, "½»¸îµ¥²éÑ¯") = 0 Then
-        MsgBox "µ±Ç°¹¤×÷±í²»ÊÇ½»¸îµ¥"
+Sub å¤„ç†äº¤å‰²å•()
+    'åˆ¤æ–­æ˜¯å¦æ˜¯äº¤å‰²å•ï¼Œä¸æ˜¯åˆ™é€€å‡º
+    If InStr(ActiveWorkbook.Name, "äº¤å‰²å•æŸ¥è¯¢") = 0 Then
+        MsgBox "å½“å‰å·¥ä½œè¡¨ä¸æ˜¯äº¤å‰²å•"
         Exit Sub
     End If
     
     Dim wsh As Worksheet
     On Error GoTo handle:
-    Set wsh = Workbooks("¹ÉÆ±2016.xlsm").Worksheets("2016ÄêÉêÍòÈÚ×ÊÕÊ»§Ã÷Ï¸")
+    Set wsh = Workbooks("è‚¡ç¥¨2016.xlsm").Worksheets("2016å¹´ç”³ä¸‡èèµ„å¸æˆ·æ˜ç»†")
     
     Dim startRows
     startRows = Range("A" & Cells.Rows.Count).End(xlUp).Row - 1
     
-    '°ÑÒª´¦ÀíµÄÊı¾İ¶ÁÈëÊı×é
+    'æŠŠè¦å¤„ç†çš„æ•°æ®è¯»å…¥æ•°ç»„
     ReDim arr(1 To startRows, 1 To 11)
     For i = 1 To startRows
         arr(i, 1) = CDate(Left(Range("A" & i + 1), 4) & "/" & Mid(Range("A" & i + 1), 5, 2) & "/" & Right(Range("A" & i + 1), 2))
@@ -990,14 +990,14 @@ Sub ´¦Àí½»¸îµ¥()
         arr(i, 4) = Range("F" & i + 1)
         arr(i, 5) = Range("I" & i + 1)
         arr(i, 6) = Range("G" & i + 1)
-        arr(i, 7) = Range("J" & i + 1) '³É½»½ğ¶î
-        arr(i, 8) = Range("U" & i + 1) 'Êµ¼Ê·¢Éú½ğ¶î
-        arr(i, 9) = Range("L" & i + 1) 'ÊÖĞø·Ñ
-        arr(i, 10) = Range("N" & i + 1) 'Ó¡»¨Ë°
-        arr(i, 11) = Range("O" & i + 1) '¹ı»§·Ñ
+        arr(i, 7) = Range("J" & i + 1) 'æˆäº¤é‡‘é¢
+        arr(i, 8) = Range("U" & i + 1) 'å®é™…å‘ç”Ÿé‡‘é¢
+        arr(i, 9) = Range("L" & i + 1) 'æ‰‹ç»­è´¹
+        arr(i, 10) = Range("N" & i + 1) 'å°èŠ±ç¨
+        arr(i, 11) = Range("O" & i + 1) 'è¿‡æˆ·è´¹
     Next i
     
-    '°ÑÊı×éĞ´ÈëÍ³¼Æ±í
+    'æŠŠæ•°ç»„å†™å…¥ç»Ÿè®¡è¡¨
     wsh.Activate
     endRows = Range("A" & wsh.Cells.Rows.Count).End(xlUp).Row + 1
     Range("A" & endRows).Resize(startRows, 11) = arr
@@ -1005,22 +1005,22 @@ Sub ´¦Àí½»¸îµ¥()
     
     Exit Sub
 handle:
-    MsgBox "¹ÉÆ±2016.xlsm Î´´ò¿ª"
+    MsgBox "è‚¡ç¥¨2016.xlsm æœªæ‰“å¼€"
 End Sub
 
-Sub È¥ÖØÆ½Ì¨Êı¾İ()
+Sub å»é‡å¹³å°æ•°æ®()
 
-    '»ñÈ¡Òª¸´ÖÆÎÄ¼şËùÔÚµÄÄ¿Â¼Ãû--------------***
+    'è·å–è¦å¤åˆ¶æ–‡ä»¶æ‰€åœ¨çš„ç›®å½•å--------------***
     Dim copyFilePath As String
-    With Application.FileDialog(msoFileDialogFolderPicker)     '´ò¿ªÎÄ¼ş¶Ô»°¿ò£¬Ñ¡ÔñÒª¸´ÖÆµÄÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ
-        .InitialFileName = "C:\"                                '³õÊ¼ÎÄ¼ş¼ĞÎªCÅÌ¸ùÄ¿Â¼
-        .Title = "ÇëÑ¡ÔñÒª¸´ÖÆµÄÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ"
+    With Application.FileDialog(msoFileDialogFolderPicker)     'æ‰“å¼€æ–‡ä»¶å¯¹è¯æ¡†ï¼Œé€‰æ‹©è¦å¤åˆ¶çš„æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹
+        .InitialFileName = "C:\"                                'åˆå§‹æ–‡ä»¶å¤¹ä¸ºCç›˜æ ¹ç›®å½•
+        .Title = "è¯·é€‰æ‹©è¦å¤åˆ¶çš„æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹"
         .Show
-        If .SelectedItems.Count > 0 Then                        'Èç¹ûÑ¡ÔñÁËÎÄ¼ş¼Ğ
+        If .SelectedItems.Count > 0 Then                        'å¦‚æœé€‰æ‹©äº†æ–‡ä»¶å¤¹
            copyFilePath = .SelectedItems(1)
            'MsgBox copyFilePath
            Else
-            MsgBox "Ã»ÓĞÑ¡ÔñÈÎºÎÄ¿Â¼£¬ÍË³ö³ÌĞò"
+            MsgBox "æ²¡æœ‰é€‰æ‹©ä»»ä½•ç›®å½•ï¼Œé€€å‡ºç¨‹åº"
             Exit Sub
         End If
     End With
@@ -1029,19 +1029,19 @@ Sub È¥ÖØÆ½Ì¨Êı¾İ()
 
 
     Dim wb As Workbook, Erow As Long, fn As String, FileName As String, sht As Worksheet
-    Application.Workbooks.Add  'ĞÂ½¨Ò»¸ö¹¤×÷²¾
+    Application.Workbooks.Add  'æ–°å»ºä¸€ä¸ªå·¥ä½œç°¿
     
    
     Application.ScreenUpdating = False
-    FileName = Dir(copyFilePath & "\*.*") 'Òª¸´ÖÆµÄÎÄ¼şÃû
-    Dim bt As Boolean      'Éè¶¨±íÍ·ÊÇ·ñÒÑ¸´ÖÆ
+    FileName = Dir(copyFilePath & "\*.*") 'è¦å¤åˆ¶çš„æ–‡ä»¶å
+    Dim bt As Boolean      'è®¾å®šè¡¨å¤´æ˜¯å¦å·²å¤åˆ¶
     bt = False
     Do While FileName <> ""
-        fn = copyFilePath & "\" & FileName 'Òª¸´ÖÆµÄÎÄ¼şÈ«Â·¾¶Ãû
-        Set wb = GetObject(fn)  '½«fn´ú±íµÄ¹¤×÷²¾¶ÔÏó¸³¸ø±äÁ¿
-        Set sht = wb.Worksheets(1) '»ã×ÜµÚ1ÕÅ¹¤×÷±í
+        fn = copyFilePath & "\" & FileName 'è¦å¤åˆ¶çš„æ–‡ä»¶å…¨è·¯å¾„å
+        Set wb = GetObject(fn)  'å°†fnä»£è¡¨çš„å·¥ä½œç°¿å¯¹è±¡èµ‹ç»™å˜é‡
+        Set sht = wb.Worksheets(1) 'æ±‡æ€»ç¬¬1å¼ å·¥ä½œè¡¨
         
-        'È¡µÃ»ã×Ü±íµÚÒ»¸ö·Ç¿ÕĞĞ---------------------
+        'å–å¾—æ±‡æ€»è¡¨ç¬¬ä¸€ä¸ªéç©ºè¡Œ---------------------
         If ActiveSheet.Cells(Rows.Count, 1).End(xlUp).Value = "" Then
                 Erow = 1
             Else
@@ -1049,15 +1049,15 @@ Sub È¥ÖØÆ½Ì¨Êı¾İ()
         End If
        
 
-        sht.UsedRange.Copy ActiveSheet.Cells(Erow, 1) '¸´ÖÆµÚÒ»ÕÅ¹¤×÷±íÊı¾İ
-        wb.Close False    '¹Ø±ÕÒÑ¸´ÖÆµÄ¹¤×÷²¾
+        sht.UsedRange.Copy ActiveSheet.Cells(Erow, 1) 'å¤åˆ¶ç¬¬ä¸€å¼ å·¥ä½œè¡¨æ•°æ®
+        wb.Close False    'å…³é—­å·²å¤åˆ¶çš„å·¥ä½œç°¿
         
-        'È¥ÖØ
+        'å»é‡
         Range("A1").CurrentRegion.RemoveDuplicates Columns:=Array(1, 2, 13, 15, 16), _
             Header:=xlNo
         
         
-        FileName = Dir    '¶¨Î»ÏÂÒ»¸öÒª¸´ÖÆµÄ¹¤×÷²¾
+        FileName = Dir    'å®šä½ä¸‹ä¸€ä¸ªè¦å¤åˆ¶çš„å·¥ä½œç°¿
     Loop
    Application.ScreenUpdating = True
       
@@ -1065,7 +1065,7 @@ Sub È¥ÖØÆ½Ì¨Êı¾İ()
     
 End Sub
 
-Sub ºÏ²¢µ¥Ôª¸ñ²¢Ìî³äÊı¾İ()
+Sub åˆå¹¶å•å…ƒæ ¼å¹¶å¡«å……æ•°æ®()
     Dim rng As Range
     Dim str As String
     Dim adds
